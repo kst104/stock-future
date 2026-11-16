@@ -3,10 +3,10 @@
 ## 산출물
 | 항목 | 경로 |
 | --- | --- |
-| 유튜브 쇼츠 MP4 | `downloads/Stock2_1116_외국인_현선물옵션_수급_칠판드로잉_쇼츠.mp4` |
-| 아카이브 영상 | `content/2026-11-16-04/stock_chalkboard/chalkboard_shorts_video.mp4` |
-| 대본 | `content/2026-11-16-04/stock_chalkboard/shorts_script.md` |
-| 생성 스크립트 | `generate_stock_1116_shorts.py` + `engine/stock_chalkboard_engine.py` |
+| 유튜브 쇼츠 MP4 | `output/Stock2_1116_외국인_현선물옵션_수급_칠판드로잉_쇼츠.mp4` |
+| 아카이브 영상 | `content/2026-11-16/04_shorts_foreign_flow/stock_chalkboard/chalkboard_shorts_video.mp4` |
+| 대본 | `content/2026-11-16/04_shorts_foreign_flow/stock_chalkboard/shorts_script.md` |
+| 생성 스크립트 | `scripts/generate_stock_1116_foreign_flow_shorts.py` + `engine/stock_chalkboard_engine.py` |
 
 ## 규격 (ffmpeg 검증)
 - 1080x1920 (9:16 세로), H.264 High, **25.00 fps CFR**, 57.82초
@@ -27,4 +27,4 @@
 전 씬 하단 고정: "본 영상은 투자 권유가 아닌 시장 기록 및 정보 정리입니다."
 
 ## 출처
-`handoffs/📈-11-16-장마감-주식-외국인-수급-노션-초안-작성/page2_foreign_flow.md` (8766 KIS 15:45 정규장 최종, 18901 감마·4사분면 집계)
+`content/2026-11-16/02_foreign_flow_analysis.md` (8766 KIS 15:45 정규장 최종, 18901 감마·4사분면 집계)

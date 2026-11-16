@@ -13,22 +13,22 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-FFMPEG_PATH = "/usr/local/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v9.0.2"
-if not os.path.exists(FFMPEG_PATH):
+# ffmpeg: imageio-ffmpeg 동봉 바이너리 우선, 없으면 시스템 ffmpeg
+try:
+    import imageio_ffmpeg
+
+    FFMPEG_PATH = imageio_ffmpeg.get_ffmpeg_exe()
+except Exception:
     FFMPEG_PATH = "ffmpeg"
 
 BASE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent  # 저장소 루트 (engine/ 의 한 단계 위)
 
-# 폰트: 저장소 fonts/ 우선, 없으면 예전 작업 환경 경로로 폴백
+# 폰트: 저장소 fonts/ (환경변수 STOCK_FONT_BOLD 로 교체 가능)
 FONT_BOLD = os.environ.get("STOCK_FONT_BOLD", str(REPO_ROOT / "fonts" / "NanumGothic-Bold.ttf"))
-if not os.path.exists(FONT_BOLD):
-    FONT_BOLD = "/workspace/fonts/NanumGothic-Bold.ttf"
 
-# 겅태 공식 3D 에셋: 저장소 assets/character/geongtae 우선, 없으면 예전 작업 환경 경로로 폴백
+# 겅태 공식 3D 에셋: 저장소 assets/character/geongtae (환경변수 GEONGTAE_ASSET_DIR 로 교체 가능)
 CHAR_DIR = Path(os.environ.get("GEONGTAE_ASSET_DIR", str(REPO_ROOT / "assets" / "character" / "geongtae")))
-if not CHAR_DIR.exists():
-    CHAR_DIR = Path("/workspace/work/content-automation-engine/assets/character/geongtae")
 
 DISCLAIMER = "본 영상은 투자 권유가 아닌 시장 기록 및 정보 정리입니다."
 

@@ -1,0 +1,14 @@
+# 비밀값 — 절대 올리지 않기
+.env
+*.env
+# 파이썬/시스템 찌꺼기
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+._*
+# 렌더 임시 산출물 (회차 폴더의 완성본만 커밋)
+output/
+/tmp/
+*.log

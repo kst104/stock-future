@@ -44,16 +44,21 @@ kst104/github.com-new  ────────┘  통합 콘텐츠 허브 ─�
 ```
 stock-future/
 ├── content/
-│   └── 2026-11-16/                       # 1회차 (2026-11-16 월 장마감)
+│   ├── 2026-11-16/                       # 1회차 (2026-11-16 월 장마감)
+│   │   ├── 02_foreign_flow_analysis.md   # 외국인 현·선물·옵션 수급 심층 원고
+│   │   └── 04_shorts_foreign_flow/       # 쇼츠 1편 (외국인 수급 심화)
+│   └── 2026-11-17/                       # 2회차 (2026-11-17 화 장마감)
 │       ├── 02_foreign_flow_analysis.md   # 외국인 현·선물·옵션 수급 심층 원고
 │       └── 04_shorts_foreign_flow/       # 쇼츠 1편 (외국인 수급 심화)
 ├── engine/
 │   └── stock_chalkboard_engine.py        # 칠판 분필 드로잉 쇼츠 렌더 엔진
 ├── scripts/
-│   └── generate_stock_1116_foreign_flow_shorts.py  # 1회차 수급 쇼츠 생성 스크립트(씬 정의·렌더·리포트)
+│   ├── generate_stock_1116_foreign_flow_shorts.py  # 1회차 수급 쇼츠 생성 스크립트(씬 정의·렌더·리포트)
+│   └── generate_stock_1117_foreign_flow_shorts.py  # 2회차 수급 쇼츠 생성 스크립트
 ├── assets/
 │   ├── character/geongtae/               # 겅태 공식 3D 에셋 15종(감정·포즈·회전)
-│   └── chalkboard/stock1116/             # 1회차 수급 칠판 드로잉 원본 6장(v2)
+│   ├── chalkboard/stock1116/             # 1회차 수급 칠판 드로잉 원본 6장(v2)
+│   └── chalkboard/stock1117/             # 2회차 수급 칠판 드로잉 원본 6장(v2)
 ├── fonts/NanumGothic-Bold.ttf            # 렌더링 폰트 (OFL)
 ├── requirements.txt
 └── .gitignore
@@ -94,7 +99,9 @@ python scripts/generate_stock_1116_foreign_flow_shorts.py
 
 ---
 
-## 4. 2026-11-16 (월) 1회차 결과물
+## 4. 회차별 결과물
+
+### 2026-11-16 (월) 1회차
 
 | 구분 | 파일 | 내용 |
 | --- | --- | --- |
@@ -102,6 +109,15 @@ python scripts/generate_stock_1116_foreign_flow_shorts.py
 | 쇼츠 | `content/2026-11-16/04_shorts_foreign_flow/stock_chalkboard/` | "장중 투기적 숏, 종가는 헷지" — 6씬, 수급 심화 |
 | 엔진 | `engine/stock_chalkboard_engine.py` | 칠판 보드·수치 카드·겅태 인서트·면책 고지 상시 노출 |
 | 생성기 | `scripts/generate_stock_1116_foreign_flow_shorts.py` | 씬 정의 + 렌더 + 검증 리포트 자동 생성 |
+
+### 2026-11-17 (화) 2회차
+
+| 구분 | 파일 | 내용 |
+| --- | --- | --- |
+| 원고 | `content/2026-11-17/02_foreign_flow_analysis.md` | 현물 -1조4,459억(집계 -1조4,430억) / 선물 +1,582계약(+3,037억), 장중 한 번도 마이너스 없음·투기적 숏 0회, 미결제 +8,140계약, 베이시스 괴리 -5.15pt, 콜 -19.9억·풋 +3.19억, 18901 감마 +230.8억(플립 760.63 위, 1사분면 약) |
+| 쇼츠 | `content/2026-11-17/04_shorts_foreign_flow/stock_chalkboard/` | "현물은 팔고 선물은 사흘째 샀다" — 6씬 60.0초, 수급 심화 |
+| 생성기 | `scripts/generate_stock_1117_foreign_flow_shorts.py` | 2회차 씬 정의 + 렌더 + 검증 리포트 |
+| 엔진 | `engine/stock_chalkboard_engine.py` | 칠판 보드·수치 카드·겅태 인서트·면책 고지 상시 노출(공용) |
 
 ---
 

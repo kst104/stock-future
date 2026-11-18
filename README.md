@@ -47,18 +47,21 @@ stock-future/
 │   ├── 2026-11-16/                       # 1회차 (2026-11-16 월 장마감)
 │   │   ├── 02_foreign_flow_analysis.md   # 외국인 현·선물·옵션 수급 심층 원고
 │   │   └── 04_shorts_foreign_flow/       # 쇼츠 1편 (외국인 수급 심화)
-│   └── 2026-11-17/                       # 2회차 (2026-11-17 화 장마감)
+│   ├── 2026-11-17/                       # 2회차 (2026-11-17 화 장마감)
+│   ├── 2026-11-18/                       # 3회차 (2026-11-18 수 장마감)
 │       ├── 02_foreign_flow_analysis.md   # 외국인 현·선물·옵션 수급 심층 원고
 │       └── 04_shorts_foreign_flow/       # 쇼츠 1편 (외국인 수급 심화)
 ├── engine/
 │   └── stock_chalkboard_engine.py        # 칠판 분필 드로잉 쇼츠 렌더 엔진
 ├── scripts/
 │   ├── generate_stock_1116_foreign_flow_shorts.py  # 1회차 수급 쇼츠 생성 스크립트(씬 정의·렌더·리포트)
-│   └── generate_stock_1117_foreign_flow_shorts.py  # 2회차 수급 쇼츠 생성 스크립트
+│   ├── generate_stock_1117_foreign_flow_shorts.py  # 2회차 수급 쇼츠 생성 스크립트
+│   └── generate_stock_1118_foreign_flow_shorts.py  # 3회차 수급 쇼츠 생성 스크립트
 ├── assets/
 │   ├── character/geongtae/               # 겅태 공식 3D 에셋 15종(감정·포즈·회전)
 │   ├── chalkboard/stock1116/             # 1회차 수급 칠판 드로잉 원본 6장(v2)
-│   └── chalkboard/stock1117/             # 2회차 수급 칠판 드로잉 원본 6장(v2)
+│   ├── chalkboard/stock1117/             # 2회차 수급 칠판 드로잉 원본 6장(v2)
+│   └── chalkboard/stock1118/             # 3회차 수급 칠판 드로잉 원본 6장(v2)
 ├── fonts/NanumGothic-Bold.ttf            # 렌더링 폰트 (OFL)
 ├── requirements.txt
 └── .gitignore
@@ -118,6 +121,14 @@ python scripts/generate_stock_1116_foreign_flow_shorts.py
 | 쇼츠 | `content/2026-11-17/04_shorts_foreign_flow/stock_chalkboard/` | "현물은 팔고 선물은 사흘째 샀다" — 6씬 60.0초, 수급 심화 |
 | 생성기 | `scripts/generate_stock_1117_foreign_flow_shorts.py` | 2회차 씬 정의 + 렌더 + 검증 리포트 |
 | 엔진 | `engine/stock_chalkboard_engine.py` | 칠판 보드·수치 카드·겅태 인서트·면책 고지 상시 노출(공용) |
+
+### 2026-11-18 (수) 3회차
+
+| 구분 | 파일 | 내용 |
+| --- | --- | --- |
+| 원고 | `content/2026-11-18/02_foreign_flow_analysis.md` | 현물 -3,338억(8766 -3,339억, 4일째) / 선물 장중 +2,145 → 종가 -323계약(-681억), 마지막 20분 1,920계약 반전·미결제 -762계약, 8766 S 0 혼조(15:43 -40, 투기적 롱 4표본·숏 0표본), 베이시스 괴리 -2.84pt(전일 -5.15), 콜 +3.21억·풋 -10.44억, 18901 감마 +1,793억(플립 761.59 위, 1사분면 강도 554계약, 위클리(목) +2,336억이 130%) |
+| 쇼츠 | `content/2026-11-18/04_shorts_foreign_flow/stock_chalkboard/` | "장중에 산 선물을 종가에 다 되팔았다" — 6씬 57.7초, 수급 심화 |
+| 생성기 | `scripts/generate_stock_1118_foreign_flow_shorts.py` | 3회차 씬 정의 + 렌더 + 검증 리포트 |
 
 ---
 

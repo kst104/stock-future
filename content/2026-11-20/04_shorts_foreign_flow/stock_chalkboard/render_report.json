@@ -1,0 +1,24 @@
+{
+  "file": "downloads/Stock2_1120_외국인_현선물옵션_수급_칠판드로잉_쇼츠.mp4",
+  "duration": 55.97,
+  "size_mb": 3.29,
+  "streams": [
+    {
+      "type": "video",
+      "w": 1080,
+      "h": 1920,
+      "fps": "25"
+    },
+    {
+      "type": "audio"
+    }
+  ],
+  "gif": "downloads/Stock2_1120_미리보기.gif",
+  "captures": [
+    "downloads/Stock2_1120_scene_1.png",
+    "downloads/Stock2_1120_scene_2.png",
+    "downloads/Stock2_1120_scene_3.png"
+  ],
+  "layout": "jaljab(올.주.선.이 3단)",
+  "subscribe_badge": "0.0~2.0s"
+}

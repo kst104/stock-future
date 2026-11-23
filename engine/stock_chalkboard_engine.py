@@ -5,7 +5,7 @@ Stock / Market Chalkboard Shorts Engine
 - 다크 그린 칠판 + 우드 프레임 + 분필 수치 카드(지수·등락률·수급·투기지수·감마)
 - 겅태 캐릭터 감정 매핑 인서트 (공식 3D 에셋 15종, 흰 배경 키아웃)
 - 하단 투자 면책 고지 상시 노출, 1080x1920 25fps 유튜브 쇼츠 규격
-- 음성: Edge-TTS ko-KR-InJoonNeural (차분한 남성 톤)
+- 음성: Edge-TTS ko-KR-SunHiNeural (선희 여성 톤)
 """
 
 import os
@@ -48,7 +48,7 @@ COLOR_MAP = {
 }
 
 
-def generate_speech(text: str, output_mp3: str, voice: str = "ko-KR-InJoonNeural", rate: str = "+5%"):
+def generate_speech(text: str, output_mp3: str, voice: str = "ko-KR-SunHiNeural", rate: str = "+5%"):
     import asyncio
     import edge_tts
 

@@ -1,0 +1,27 @@
+{
+  "started_date": "2026-11-23",
+  "rule": "전날 내일의 방향 예측이 상승(위) 또는 하락(아래)인 날만 누적(보합/횡보 제외)",
+  "total_directional_predictions": 0,
+  "hits": 0,
+  "accuracy_pct": null,
+  "display": "11/23~ 집계 시작",
+  "history": [
+    {
+      "date": "2026-11-23",
+      "weekday": "월",
+      "today_direction": "아래(중)",
+      "today_actual": {
+        "kospi_close": 4708.54,
+        "change_pct": -3.31,
+        "open_pct": -2.77,
+        "low_pct": -5.8,
+        "result": "적중"
+      },
+      "tomorrow_direction": "위(약) 또는 횡보",
+      "tomorrow_target_date": "2026-11-24",
+      "tomorrow_actual": null,
+      "counted_in_cumulative": false,
+      "note": "첫 기록. 전날 예측이 없어 누적 집계 대상이 아니며, 11/24 마감 후 내일 방향 예측의 적중 여부부터 집계한다."
+    }
+  ]
+}

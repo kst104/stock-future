@@ -1,7 +1,7 @@
 {
   "file": "downloads/Stock2_1124_외국인_현선물옵션_수급_칠판드로잉_쇼츠.mp4",
-  "duration": 58.12,
-  "size_mb": 2.94,
+  "duration": 62.12,
+  "size_mb": 2.95,
   "streams": [
     {
       "type": "video",
@@ -37,35 +37,35 @@
     },
     {
       "scene": 3,
-      "topic": "마지막 1시간 -5,281",
+      "topic": "누적 +3,604 · 막판 -5,281",
       "start": 21.24,
-      "end": 32.75,
-      "seconds": 11.51
+      "end": 36.76,
+      "seconds": 15.52
     },
     {
       "scene": 4,
       "topic": "콜 +4,135 · 풋 +1,289",
-      "start": 32.75,
-      "end": 42.05,
+      "start": 36.76,
+      "end": 46.06,
       "seconds": 9.3
     },
     {
       "scene": 5,
       "topic": "감마 플립 770.83",
-      "start": 42.05,
-      "end": 50.15,
+      "start": 46.06,
+      "end": 54.16,
       "seconds": 8.1
     },
     {
       "scene": 6,
       "topic": "오늘·내일 방향",
-      "start": 50.15,
-      "end": 59.89,
+      "start": 54.16,
+      "end": 63.9,
       "seconds": 7.74,
       "hold": 2.0
     }
   ],
   "layout": "jaljab(올.주.선.이 3단)",
   "subscribe_badge": "0.0~2.0s",
-  "direction_cut": "last scene (오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 / 11/23~ 적중률 100.0% (1/1))"
+  "direction_cut": "last scene (오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 / 11/23~ 집계 대상 없음)"
 }

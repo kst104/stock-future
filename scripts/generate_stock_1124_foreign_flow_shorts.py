@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """2026-11-24 (화) 외국인 수급 쇼츠 생성기 (7회차 · 올.주.선.이 3단 레이아웃)
-- 5씬 + 마지막 방향성 컷(오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위, 우측 상단 11/23~ 적중률 100.0% (1/1))
+- 5씬 + 마지막 방향성 컷(오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위, 우측 상단 11/23~ 집계 대상 없음)
 - 실행: STOCK_SHORTS_OUTPUT=/workspace/downloads python scripts/generate_stock_1124_foreign_flow_shorts.py
 """
 
@@ -41,10 +41,10 @@ VIDEO = {
             "voice": "미결제는 십칠만 삼천이백십삼 계약. 전일보다 육백사십육 계약만 늘었습니다. 칠 퍼센트 오른 날치고 적습니다.",
         },
         {
-            "topic": "마지막 1시간 -5,281",
-            "caption": "14:44 +9,035 → 종가 +3,604",
+            "topic": "누적 +3,604 · 막판 -5,281",
+            "caption": "당일 누적 +3,604 · 막판 1시간 -5,281",
             "chalk_img": str(ART / "v2_scene3_last_hour.png"),
-            "voice": "외국인은 열네 시 사십사 분에 구천삼십오 계약까지 쌓았다가 종가에 삼천육백사 계약. 마지막 한 시간에 오천이백팔십일 계약을 팔았습니다.",
+            "voice": "외국인은 열네 시 사십사 분 구천삼십오 계약까지 쌓았다가 종가 삼천육백사 계약. 마지막 한 시간에만 오천이백팔십일 계약을 팔았습니다. 누적은 매수, 막판은 매도로 따로 봐야 합니다.",
         },
         {
             "topic": "콜 +4,135 · 풋 +1,289",
@@ -65,7 +65,7 @@ VIDEO = {
             "tomorrow_label": "강위",
             "today_arrow": "▲",
             "tomorrow_arrow": "▲",
-            "accuracy_text": "11/23~ 적중률 100.0% (1/1)",
+            "accuracy_text": "11/23~ 집계 대상 없음",
             "hold": 2.0,
             "voice": "오늘도 내일도 강한 상방으로 봅니다. 장 막판 선물 매도가 이어지는지만 확인하면 됩니다.",
         },
@@ -112,7 +112,7 @@ def write_script(video: dict):
         "- 음성: Edge-TTS ko-KR-SunHiNeural, 속도 +5%",
         f"- 대본 분량: {chars}자",
         "- 시작 0.0~2.0초: '구독·알림·좋아요는 힘이 됩니다' 배지 오버레이",
-        "- 마지막 컷: 오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 + 우측 상단 '11/23~ 적중률 100.0% (1/1)'",
+        "- 마지막 컷: 오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 + 우측 상단 '11/23~ 집계 대상 없음'",
         f"- 하단 안내문: {FOOTER}",
         "",
         "| 씬 | 주제 | 자막 | 내레이션 |",
@@ -162,7 +162,7 @@ def build(video: dict):
               "gif": _show(gif), "captures": [_show(c) for c in caps], "last_cut": _show(last_cut),
               "timings": timings,
               "layout": "jaljab(올.주.선.이 3단)", "subscribe_badge": "0.0~2.0s",
-              "direction_cut": "last scene (오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 / 11/23~ 적중률 100.0% (1/1))"}
+              "direction_cut": "last scene (오늘의 방향 ▲ 강위 / 내일의 예상 ▲ 강위 / 11/23~ 집계 대상 없음)"}
     (ARCHIVE / "render_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return report

@@ -1,10 +1,10 @@
 {
   "started_date": "2026-11-23",
   "rule": "전날 내일의 방향 예측이 상승(위) 또는 하락(아래)인 날만 누적(보합/횡보 제외)",
-  "total_directional_predictions": 0,
-  "hits": 0,
-  "accuracy_pct": null,
-  "display": "11/23~ 집계 시작",
+  "total_directional_predictions": 1,
+  "hits": 1,
+  "accuracy_pct": 100.0,
+  "display": "11/23~ 적중률 100.0% (1/1)",
   "history": [
     {
       "date": "2026-11-23",
@@ -13,15 +13,32 @@
       "today_actual": {
         "kospi_close": 4708.54,
         "change_pct": -3.31,
-        "open_pct": -2.77,
-        "low_pct": -5.8,
         "result": "적중"
       },
       "tomorrow_direction": "위(약) 또는 횡보",
       "tomorrow_target_date": "2026-11-24",
+      "tomorrow_actual": {
+        "kospi_close": 5006.03,
+        "change_pct": 6.32,
+        "result": "적중"
+      },
+      "counted_in_cumulative": true,
+      "note": "내일(11/24) 예측이 '위(약) 또는 횡보'로 상승 방향을 포함해 누적 집계 대상. 실제 +6.32% 상승으로 적중."
+    },
+    {
+      "date": "2026-11-24",
+      "weekday": "화",
+      "today_direction": "위(강)",
+      "today_actual": {
+        "kospi_close": 5006.03,
+        "change_pct": 6.32,
+        "result": "적중"
+      },
+      "tomorrow_direction": "위(강)",
+      "tomorrow_target_date": "2026-11-25",
       "tomorrow_actual": null,
-      "counted_in_cumulative": false,
-      "note": "첫 기록. 전날 예측이 없어 누적 집계 대상이 아니며, 11/24 마감 후 내일 방향 예측의 적중 여부부터 집계한다."
+      "counted_in_cumulative": null,
+      "note": "승태 님 확정: 오늘·내일 모두 ▲ 강위. 11/24 예측은 11/25 마감 후 집계."
     }
   ]
 }

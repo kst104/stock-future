@@ -188,6 +188,7 @@ def create_scene_frame(*, chalk_img_path: str, out_img: str, topic: str = "", ca
 
 def create_direction_frame(*, out_img: str, topic: str = "오늘과 내일의 방향",
                            today_label: str = "중간하방", tomorrow_label: str = "약간 상방 또는 횡보",
+                           today_arrow: str = "▼", tomorrow_arrow: str = "▲",
                            accuracy_text: str = "11/23~ 집계 시작",
                            top_line: str = TOP_LINE, footer: str = FOOTER,
                            width: int = 1080, height: int = 1920) -> str:
@@ -212,7 +213,7 @@ def create_direction_frame(*, out_img: str, topic: str = "오늘과 내일의 �
     # 오늘의 방향
     f_lab, bb_lab = _fit_font_width("오늘의 방향", width - 160, 42, 30)
     d.text((width // 2, vid_y1 + 150), "오늘의 방향", font=f_lab, fill=(190, 190, 190), anchor="mm")
-    today_text = "▼ " + today_label
+    today_text = f"{today_arrow} {today_label}"
     f_t, bb_t = _fit_font_width(today_text, width - 120, 82, 44)
     d.text((width // 2, vid_y1 + 258), today_text, font=f_t, fill=(255, 138, 128), anchor="mm")
 
@@ -221,7 +222,7 @@ def create_direction_frame(*, out_img: str, topic: str = "오늘과 내일의 �
 
     # 내일의 예상
     d.text((width // 2, vid_y1 + 470), "내일의 예상", font=f_lab, fill=(190, 190, 190), anchor="mm")
-    tomorrow_text = "▲ " + tomorrow_label
+    tomorrow_text = f"{tomorrow_arrow} {tomorrow_label}"
     f_m, bb_m = _fit_font_width(tomorrow_text, width - 100, 70, 38)
     d.text((width // 2, vid_y1 + 578), tomorrow_text, font=f_m, fill=(255, 235, 140), anchor="mm")
 
@@ -273,6 +274,7 @@ def render_shorts(scenes: list, output_mp4: str, temp_dir: str = "/tmp/stock_jal
                   top_line: str = TOP_LINE, footer: str = FOOTER, subscribe_badge: bool = True):
     os.makedirs(temp_dir, exist_ok=True)
     parts, total = [], 0.0
+    timings = []
     print(f"[올.주.선.이 엔진] {len(scenes)}씬 렌더링 시작")
     for idx, sc in enumerate(scenes, 1):
         audio = os.path.join(temp_dir, f"audio_{idx}.mp3")
@@ -285,6 +287,8 @@ def render_shorts(scenes: list, output_mp4: str, temp_dir: str = "/tmp/stock_jal
             create_direction_frame(out_img=frame, topic=sc.get("topic", "오늘과 내일의 방향"),
                                    today_label=sc.get("today_label", "중간하방"),
                                    tomorrow_label=sc.get("tomorrow_label", "약간 상방 또는 횡보"),
+                                   today_arrow=sc.get("today_arrow", "▼"),
+                                   tomorrow_arrow=sc.get("tomorrow_arrow", "▲"),
                                    accuracy_text=sc.get("accuracy_text", "11/23~ 집계 시작"),
                                    top_line=sc.get("top_line") or top_line, footer=sc.get("footer") or footer)
         else:
@@ -297,6 +301,9 @@ def render_shorts(scenes: list, output_mp4: str, temp_dir: str = "/tmp/stock_jal
             badge = create_subscribe_badge_png(os.path.join(temp_dir, "badge.png"))
         render_scene(frame, audio, part, dur, badge_png=badge, fps=fps)
         parts.append(part)
+        scene_start = total - (dur + 0.3)
+        timings.append({"scene": idx, "topic": sc.get("topic", ""), "start": round(scene_start, 2),
+                        "end": round(total, 2), "seconds": round(dur + 0.3, 2)})
         print(f"  - 씬 {idx}/{len(scenes)} {dur:.1f}초 {sc.get('topic', '')}")
         hold = float(sc.get("hold") or 0)
         if hold > 0:
@@ -306,6 +313,8 @@ def render_shorts(scenes: list, output_mp4: str, temp_dir: str = "/tmp/stock_jal
             hpart = os.path.join(temp_dir, f"scene_{idx}_hold.mp4")
             render_scene(frame, silent, hpart, hold, badge_png=None, fps=fps)
             parts.append(hpart)
+            timings[-1]["end"] = round(total + hold, 2)
+            timings[-1]["hold"] = round(hold, 2)
             total += hold
             print(f"    · 방향 컷 {hold:.1f}초 정지 유지")
 
@@ -322,4 +331,4 @@ def render_shorts(scenes: list, output_mp4: str, temp_dir: str = "/tmp/stock_jal
                     "-movflags", "+faststart", output_mp4],
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
     print(f"✅ 완성 {output_mp4} (약 {total:.1f}초)")
-    return total
+    return timings
